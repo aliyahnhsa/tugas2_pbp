@@ -1,7 +1,4 @@
-# Tugas 2 PBP
-# Aliyah Nahisa Sugiana
-# 2306275405
-# PBP B
+# Tugas Individu 2 PBP | Aliyah Nahisa Sugiana | 2306275405 | PBP B
 
 ## Tautan Aplikasi PWS
 Aplikasi Django saya dapat diakses melalui link berikut:  
