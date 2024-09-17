@@ -1,40 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RandomGames Store</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000000;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #bf9efd;
-        }
-        .game-item {
-            background-color: #e2ccf8;
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        h5 {
-            margin: 0;
-            font-size: 1.1em;
-            color: #333;
-        }
-        p {
-            margin: 5px 0 15px;
-        }
-    </style>
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% block title %}RandomGames Store{% endblock title %}
+
+{% block content %}
     <h1>RandomGames Store</h1>
 
     <!-- Baldur's Gate 3 -->
@@ -67,39 +35,6 @@
         <p>A thrilling, fast-paced military first-person shooter with intense multiplayer modes.</p>
     </div>
 
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ app_name }}</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000000;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #784bff;
-        }
-        .info-section {
-            background-color: #b8bfee;
-            padding: 20px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-
     <h1>RandomGames Store</h1>
 
     <div class="info-section">
@@ -109,5 +44,33 @@
         <p>PBP B</p>
     </div>
 
-</body>
-</html>
+{% if not game_entries %}
+<p>Belum ada data games pada mental health tracker.</p>
+{% else %}
+<table>
+  <tr>
+    <th>games Name</th>
+    <th>Time</th>
+    <th>Feeling</th>
+    <th>games Intensity</th>
+  </tr>
+
+  {% comment %} Berikut cara memperlihatkan data Games di bawah baris ini 
+  {% endcomment %} 
+  {% for games_entry in game_entries %}
+  <tr>
+    <td>{{games_entry.name}}</td>
+    <td>{{games_entry.price}}</td>
+    <td>{{games_entry.description}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<br />
+
+<a href="{% url 'main:create_games_entry' %}">
+  <button>Add New Games Entry</button>
+</a>
+
+{% endblock content %}
