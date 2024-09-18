@@ -11,7 +11,7 @@ def show_main(request):
         'appname': 'RandomGames Store App',
         'name': 'Aliyah Nahisa Sugiana',
         'class': 'PBP B',
-        'mood_entries': game_entries,
+        'game_entries': game_entries,
     }
 
     return render(request, "main.html", context)

@@ -35,8 +35,6 @@
         <p>A thrilling, fast-paced military first-person shooter with intense multiplayer modes.</p>
     </div>
 
-    <h1>RandomGames Store</h1>
-
     <div class="info-section">
         <h5>Name:</h5>
         <p>Aliyah Nahisa Sugiana</p>
@@ -44,33 +42,28 @@
         <p>PBP B</p>
     </div>
 
-{% if not game_entries %}
-<p>Belum ada data games pada mental health tracker.</p>
-{% else %}
-<table>
-  <tr>
-    <th>games Name</th>
-    <th>Time</th>
-    <th>Feeling</th>
-    <th>games Intensity</th>
-  </tr>
+    {% if not game_entries %}
+    <p>Belum ada game yang tersedia di toko.</p>
+    {% else %}
+    <table>
+      <tr>
+        <th>Game Name</th>
+        <th>Price</th>
+        <th>Description</th>
+      </tr>
+      {% for games_entry in game_entries %}
+      <tr>
+        <td>{{ games_entry.name }}</td>
+        <td>{{ games_entry.price }}</td>
+        <td>{{ games_entry.description }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
 
-  {% comment %} Berikut cara memperlihatkan data Games di bawah baris ini 
-  {% endcomment %} 
-  {% for games_entry in game_entries %}
-  <tr>
-    <td>{{games_entry.name}}</td>
-    <td>{{games_entry.price}}</td>
-    <td>{{games_entry.description}}</td>
-  </tr>
-  {% endfor %}
-</table>
-{% endif %}
+    <br />
 
-<br />
-
-<a href="{% url 'main:create_games_entry' %}">
-  <button>Add New Games Entry</button>
-</a>
-
+    <a href="{% url 'main:create_games_entry' %}">
+      <button>Add New Games Entry</button>
+    </a>
 {% endblock content %}
