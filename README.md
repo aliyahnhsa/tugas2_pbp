@@ -55,3 +55,9 @@ Kita butuh `csrf_token` karena itu cara paling gampang Django untuk memastikan b
 ### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
 Saya mulai dengan bikin direktori proyek dan setup Django. Setelah itu, deployment ke PWS, tapi sempat terhenti karena server down. Lanjut, saya buat model yang sesuai dengan kebutuhan aplikasi (nama, harga, deskripsi). Setelah itu, saya setup views dan URLs untuk menampilkan data di frontend. Terakhir, saya rapikan template HTML dan pastikan semuanya bisa bekerja dengan baik secara fungsional dan visual.
+
+### POSTMAN
+![image](https://github.com/user-attachments/assets/613ae02f-68fe-4cb9-a1a6-8a87ef20f1ab)
+![image](https://github.com/user-attachments/assets/4778dfd7-ed97-4e21-bfb6-2ea4ac05ec5d)
+![image](https://github.com/user-attachments/assets/9e55582b-fd77-444f-9d4b-821463b01e46)
+![image](https://github.com/user-attachments/assets/e8b469de-79a1-458c-8c97-66f0a76a3ae1)
