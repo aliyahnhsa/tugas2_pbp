@@ -1,10 +1,12 @@
-# Tugas Individu 2 PBP | Aliyah Nahisa Sugiana | 2306275405 | PBP B
+# Aliyah Nahisa Sugiana | 2306275405 | PBP B
 
-## Tautan Aplikasi PWS
+## TUGAS INDIVIDU 2:
+
+### Tautan Aplikasi PWS
 Aplikasi Django saya dapat diakses melalui link berikut:  
 [Link Aplikasi PWS masih belum ada karena server down]
 
-## Jawaban Pertanyaan
+### Jawaban Pertanyaan
 
 ### 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step?
 
@@ -29,3 +31,27 @@ Django dipilih karena memiliki struktur yang jelas dan lengkap, sehingga memudah
 ### 5. Mengapa model pada Django disebut sebagai ORM?
 
 Model di Django disebut ORM (Object-Relational Mapping) karena memungkinkan developer untuk berinteraksi dengan database menggunakan objek Python, tanpa harus menulis query SQL secara langsung. ORM mengonversi data dari database menjadi objek Python dan sebaliknya.
+
+
+
+# TUGAS INDIVIDU 3:
+
+### 1. Mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+
+Data delivery adalah cara kita memastikan aplikasi tetap sinkron dengan server, terutama untuk aplikasi yang interaktif. Tanpa data delivery, semua data di halaman aplikasi akan statis dan tidak bisa memperbarui informasi sesuai kebutuhan pengguna. Data delivery membuat semuanya terasa nyata dan langsung—ketika pengguna menambah barang di keranjang belanja, contohnya, itu harus langsung diproses dan dikirim ke server, bukan hanya sekadar aksi visual.
+
+### 2. Mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+
+Secara pribadi, saya lebih memilih JSON. XML terasa terlalu berat dan cenderung ribet. Sedangkan JSON, lebih simpel dan to the point, cocok untuk pengiriman data yang cepat dan ringan. Alasan utamanya JSON lebih populer karena lebih sedikit syntax dan lebih mudah dibaca, baik oleh manusia maupun mesin. XML mungkin punya tempat di beberapa aplikasi yang sangat spesifik, tapi dalam pengembangan modern, JSON lebih bagus dalam hal kepraktisan.
+
+### 3. Jelaskan fungsi dari method `is_valid()` pada form Django dan mengapa kita membutuhkan method tersebut?
+
+`is_valid()` pada form Django itu penting untuk ngecek apakah input dari pengguna sesuai aturan yang sudah kita tentukan di form atau model. Tanpa itu, kita bisa aja dapat input yang asal-asalan, misalnya harga produk yang berupa teks atau field kosong yang seharusnya wajib diisi. Kita butuh ini supaya form bisa memfilter data yang tidak valid sebelum masuk ke database atau diproses lebih lanjut.
+
+### 4. Mengapa kita membutuhkan `csrf_token` saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan `csrf_token` pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+
+Kita butuh `csrf_token` karena itu cara paling gampang Django untuk memastikan bahwa data yang dikirimkan oleh pengguna benar-benar datang dari form di website kita, bukan dari sumber luar yang berbahaya. Kalau kita nggak pakai `csrf_token`, form kita bisa dipakai penyerang untuk mengirimkan permintaan yang tidak kita inginkan atas nama pengguna yang sedang aktif di situs kita—misalnya transaksi ilegal atau mengubah data penting.
+
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+Saya mulai dengan bikin direktori proyek dan setup Django. Setelah itu, deployment ke PWS, tapi sempat terhenti karena server down. Lanjut, saya buat model yang sesuai dengan kebutuhan aplikasi (nama, harga, deskripsi). Setelah itu, saya setup views dan URLs untuk menampilkan data di frontend. Terakhir, saya rapikan template HTML dan pastikan semuanya bisa bekerja dengan baik secara fungsional dan visual.
