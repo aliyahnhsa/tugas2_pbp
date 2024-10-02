@@ -1,0 +1,27 @@
+<div class="relative break-inside-avoid">
+    <div class="absolute top-2 z-10 left-1/2 -translate-x-1/2 flex items-center -space-x-2">
+    </div>
+    <div class="relative top-5 bg-indigo-100 shadow-md rounded-lg mb-6 break-inside-avoid flex flex-col border-2 border-indigo-300 transform rotate-1 hover:rotate-0 transition-transform duration-300">
+      <div class="bg-blue-200 text-gray-800 p-4 rounded-t-lg border-b-2 border-indigo-300">
+        <h3 class="font-bold text-xl mb-2">{{game_entry.game}}</h3>
+      </div>
+      <div class="p-4">
+        <p class="font-semibold text-lg mb-2">Price</p> 
+        <p class="text-gray-700 mb-2">
+          <span class="bg-[linear-gradient(to_bottom,transparent_0%,transparent_calc(100%_-_1px),#CDC1FF_calc(100%_-_1px))] bg-[length:100%_1.5rem] pb-1">${{game_entry.price}}</span>
+        </p>
+        <div class="mt-4">
+          <p class="text-gray-700 font-semibold mb-2">Description</p>
+          <p class="text-gray-700">{{game_entry.description}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="absolute top-0 -right-4 flex space-x-1">
+      <a href="{% url 'main:edit_game' game_entry.pk %}" class="bg-green-500 hover:bg-yellow-600 text-white rounded-full p-2 transition duration-300 shadow-md">
+        Edit
+      </a>
+      <a href="{% url 'main:delete_game' game_entry.pk %}" class="bg-red-500 hover:bg-red-600 text-white rounded-full p-2 transition duration-300 shadow-md">
+        Delete
+      </a>
+    </div>
+  </div>

@@ -99,3 +99,22 @@ Untuk mengimplementasikan sistem login, register, logout, autentikasi, dan pengh
 5. Menghubungkan model dengan pengguna: Saya menambahkan relasi ForeignKey antara model MoodEntry dan model User. Ketika pengguna membuat mood entry, saya memastikan data yang disimpan dikaitkan dengan akun pengguna yang sedang login, dan hanya menampilkan mood entry yang sesuai dengan pengguna tersebut di halaman utama.
 
 6. Migrasi model: Setelah menghubungkan model dengan User, saya menjalankan migrasi untuk memperbarui struktur database, memastikan data lama ditetapkan ke pengguna yang ada, jika ada entri sebelumnya di database.
+
+
+## TUGAS INDIVIDU 5:
+
+
+### 1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut! 
+CSS selector memiliki urutan prioritas dalam menentukan aturan yang diterapkan pada elemen HTML. Prioritas ini bergantung pada jenis selektor: inline styles memiliki prioritas tertinggi, diikuti oleh ID selector, class/attribute/pseudo-class selectors, dan terakhir adalah tag selector. Jika dua atau lebih selector memiliki tingkat prioritas yang sama, yang dideklarasikan terakhir dalam CSS akan diterapkan.
+
+### 2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+Responsive design sangat penting dalam pengembangan aplikasi web karena memungkinkan tampilan web untuk menyesuaikan diri dengan berbagai ukuran layar, mulai dari desktop hingga perangkat mobile. Hal ini meningkatkan pengalaman pengguna dan aksesibilitas. Contoh aplikasi yang sudah menerapkan responsive design adalah Twitter dan Discord, sedangkan situs-situs lama yang belum dioptimalkan untuk perangkat mobile mungkin belum menerapkan konsep ini.
+
+### 3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut! 
+Margin adalah ruang di luar elemen yang memisahkan elemen dari elemen lain, border adalah garis yang mengelilingi elemen, dan padding adalah ruang di dalam elemen antara konten dan border. Implementasinya dilakukan dengan menggunakan properti CSS seperti `margin`, `border`, dan `padding` untuk menentukan ukuran masing-masing.
+
+### 4. Jelaskan konsep flex box dan grid layout beserta kegunaannya! 
+Flexbox dan grid layout adalah teknik untuk mengatur tata letak elemen di halaman web. Flexbox berguna untuk mendistribusikan ruang di antara item dalam satu arah (baris atau kolom), sedangkan grid layout memungkinkan pengaturan elemen dalam dua arah (baris dan kolom), membuatnya lebih fleksibel untuk layout yang lebih kompleks.
+
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+Pada bagian ini, saya mulai dengan menyiapkan struktur HTML dan CSS dasar. Setelah itu, saya menerapkan responsive design menggunakan media queries untuk memastikan tampilan web tetap optimal di berbagai perangkat. Saya menggunakan flexbox untuk tata letak bagian tertentu dan grid layout untuk tata letak yang lebih kompleks. Margin, border, dan padding diterapkan sesuai kebutuhan untuk menjaga jarak antar elemen, dan selector CSS dipilih dengan mempertimbangkan prioritas yang benar.

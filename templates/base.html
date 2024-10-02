@@ -2,38 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% block meta %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}My Site{% endblock title %}</title>
+  
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}"/>
     {% block meta %} {% endblock meta %}
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #bdbdbd;
-        color: #333;
-        margin: 0;
-        padding: 20px;
-      }
-      h1 {
-        text-align: center;
-        color: #bf9efd;
-      }
-      .game-item {
-        background-color: #e2ccf8;
-        padding: 15px;
-        margin: 10px 0;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-      }
-      h5 {
-        margin: 0;
-        font-size: 1.1em;
-        color: #333;
-      }
-      p {
-        margin: 5px 0 15px;
-      }
-    </style>
   </head>
 
   <body>
