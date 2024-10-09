@@ -6,27 +6,45 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.shortcuts import render, redirect, reverse
-from main.forms import GamesEntryForm
-from main.models import GamesEntry
+from main.forms import GameEntryForm
+from main.models import GameEntry
 from django.http import HttpResponse
 from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+from django.utils.html import strip_tags
 
 @login_required(login_url='/login')
 def show_main(request):
-    game_entries = GamesEntry.objects.filter(user=request.user)
 
     context = {
-        'appname': 'RandomGames Store App',
+        'appname': 'Randomgame Store App',
         'name': request.user.username,
         'class': 'PBP B',
-        'game_entries': game_entries,
         'last_login': request.COOKIES['last_login'],
     }
 
     return render(request, "main.html", context)
 
+@csrf_exempt
+@require_POST
+def add_game_entry_ajax(request):
+    game = strip_tags(request.POST.get("game"))
+    price = strip_tags(request.POST.get("price"))
+    description = strip_tags(request.POST.get("description"))
+    user = request.user
+
+    new_game = GameEntry(
+        game=game, price=price,
+        description=description,
+        user=user
+    )
+    new_game.save()
+
+    return HttpResponse(b"CREATED", status=201)
+
 def create_games_entry(request):
-    form = GamesEntryForm(request.POST or None)
+    form = GameEntryForm(request.POST or None)
 
     if form.is_valid() and request.method == "POST":
         game_entry = form.save(commit=False)
@@ -38,19 +56,19 @@ def create_games_entry(request):
     return render(request, "create_games_entry.html", context)
 
 def show_xml(request):
-    data = GamesEntry.objects.all()
+    data = GameEntry.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_xml_by_id(request, id):
-    data = GamesEntry.objects.filter(pk=id)
+    data = GameEntry.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json(request):
-    data = GamesEntry.objects.all()
+    data = GameEntry.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def show_json_by_id(request, id):
-    data = GamesEntry.objects.filter(pk=id)
+    data = GameEntry.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def register(request):
@@ -74,9 +92,9 @@ def login_user(request):
             login(request, user)
             response = HttpResponseRedirect(reverse("main:show_main"))
             response.set_cookie('last_login', str(datetime.datetime.now()))
-            return response
-      
+            return response 
    else:
+      messages.error(request, "Invalid username or password. Please try again.")
       form = AuthenticationForm(request)
    context = {'form': form}
    return render(request, 'login.html', context)
@@ -88,11 +106,11 @@ def logout_user(request):
     return response
 
 def edit_game(request, id):
-    # Get mood entry berdasarkan id
-    game = GamesEntry.objects.get(pk = id)
+    # Get game entry berdasarkan id
+    game = GameEntry.objects.get(pk = id)
 
-    # Set mood entry sebagai instance dari form
-    form = GamesEntryForm(request.POST or None, instance=game)
+    # Set game entry sebagai instance dari form
+    form = GameEntryForm(request.POST or None, instance=game)
 
     if form.is_valid() and request.method == "POST":
         # Simpan form dan kembali ke halaman awal
@@ -103,6 +121,6 @@ def edit_game(request, id):
     return render(request, "edit_game.html", context)
 
 def delete_game(request, id):
-    game = GamesEntry.objects.get(pk = id)
+    game = GameEntry.objects.get(pk = id)
     game.delete()
     return HttpResponseRedirect(reverse('main:show_main'))

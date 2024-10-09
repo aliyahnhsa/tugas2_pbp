@@ -25,7 +25,7 @@ Django dipilih karena memiliki struktur yang jelas dan lengkap, sehingga memudah
 ### 5. Mengapa model pada Django disebut sebagai ORM?
 Model di Django disebut ORM (Object-Relational Mapping) karena memungkinkan developer untuk berinteraksi dengan database menggunakan objek Python, tanpa harus menulis query SQL secara langsung. ORM mengonversi data dari database menjadi objek Python dan sebaliknya.
 
-
+-------------------------------------------------------------------
 
 ## TUGAS INDIVIDU 3:
 
@@ -50,6 +50,7 @@ Saya mulai dengan bikin direktori proyek dan setup Django. Setelah itu, deployme
 ![image](https://github.com/user-attachments/assets/9e55582b-fd77-444f-9d4b-821463b01e46)
 ![image](https://github.com/user-attachments/assets/e8b469de-79a1-458c-8c97-66f0a76a3ae1)
 
+-------------------------------------------------------------------
 
 ## TUGAS INDIVIDU 4:
 
@@ -96,13 +97,13 @@ Untuk mengimplementasikan sistem login, register, logout, autentikasi, dan pengh
 
 4. Menggunakan cookies: Saya menambahkan cookie last_login ketika pengguna berhasil login, yang menyimpan waktu terakhir login. Cookie ini kemudian ditampilkan di halaman utama.
 
-5. Menghubungkan model dengan pengguna: Saya menambahkan relasi ForeignKey antara model MoodEntry dan model User. Ketika pengguna membuat mood entry, saya memastikan data yang disimpan dikaitkan dengan akun pengguna yang sedang login, dan hanya menampilkan mood entry yang sesuai dengan pengguna tersebut di halaman utama.
+5. Menghubungkan model dengan pengguna: Saya menambahkan relasi ForeignKey antara model gameEntry dan model User. Ketika pengguna membuat game entry, saya memastikan data yang disimpan dikaitkan dengan akun pengguna yang sedang login, dan hanya menampilkan game entry yang sesuai dengan pengguna tersebut di halaman utama.
 
 6. Migrasi model: Setelah menghubungkan model dengan User, saya menjalankan migrasi untuk memperbarui struktur database, memastikan data lama ditetapkan ke pengguna yang ada, jika ada entri sebelumnya di database.
 
+-------------------------------------------------------------------
 
 ## TUGAS INDIVIDU 5:
-
 
 ### 1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut! 
 CSS selector memiliki urutan prioritas dalam menentukan aturan yang diterapkan pada elemen HTML. Prioritas ini bergantung pada jenis selektor: inline styles memiliki prioritas tertinggi, diikuti oleh ID selector, class/attribute/pseudo-class selectors, dan terakhir adalah tag selector. Jika dua atau lebih selector memiliki tingkat prioritas yang sama, yang dideklarasikan terakhir dalam CSS akan diterapkan.
@@ -118,3 +119,27 @@ Flexbox dan grid layout adalah teknik untuk mengatur tata letak elemen di halama
 
 ### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
 Pada bagian ini, saya mulai dengan menyiapkan struktur HTML dan CSS dasar. Setelah itu, saya menerapkan responsive design menggunakan media queries untuk memastikan tampilan web tetap optimal di berbagai perangkat. Saya menggunakan flexbox untuk tata letak bagian tertentu dan grid layout untuk tata letak yang lebih kompleks. Margin, border, dan padding diterapkan sesuai kebutuhan untuk menjaga jarak antar elemen, dan selector CSS dipilih dengan mempertimbangkan prioritas yang benar.
+
+-------------------------------------------------------------------
+
+## TUGAS INDIVIDU 6:
+### 1. Manfaat Penggunaan JavaScript dalam Pengembangan Aplikasi Web
+JavaScript memiliki peran penting dalam pengembangan aplikasi web karena memungkinkan aplikasi untuk menjadi lebih interaktif dan dinamis. Penggunaan JavaScript memungkinkan pengembang untuk memanipulasi elemen-elemen di halaman web secara real-time tanpa harus melakukan refresh ulang pada halaman tersebut, memberikan pengalaman pengguna yang lebih mulus. Selain itu, JavaScript memiliki kompatibilitas yang luas dan dapat digunakan untuk berbagai framework dan library, mempercepat proses pengembangan serta memudahkan integrasi dengan backend.
+
+### 2. Fungsi Penggunaan await pada fetch()
+await berfungsi untuk menunggu hasil dari sebuah promise, seperti saat menggunakan fetch(). Dengan menggunakan await, JavaScript akan menunda eksekusi kode berikutnya hingga promise selesai dan mengembalikan hasilnya. Jika kita tidak menggunakan await, fungsi fetch() akan tetap berjalan secara asynchronous, namun kode setelahnya akan dieksekusi tanpa menunggu hasil dari fetch(), yang dapat menyebabkan data belum tersedia saat kita membutuhkannya.
+
+### 3. Pentingnya Menggunakan Decorator csrf_exempt pada AJAX POST
+Decorator csrf_exempt digunakan untuk menonaktifkan perlindungan CSRF (Cross-Site Request Forgery) pada view tertentu. Hal ini diperlukan karena AJAX request, khususnya POST request, seringkali tidak mengirimkan token CSRF secara otomatis seperti form HTML biasa. Jika token CSRF tidak diberikan, permintaan POST tersebut akan ditolak oleh Django. Untuk memungkinkan AJAX POST berfungsi, kita dapat menggunakan csrf_exempt agar Django tidak memeriksa token CSRF pada view yang bersangkutan.
+
+### 4. Pentingnya Pembersihan Data di Backend
+Meskipun validasi input bisa dilakukan di frontend untuk memberikan feedback langsung kepada pengguna, pembersihan data di backend tetap penting sebagai lapisan keamanan tambahan. Hal ini dilakukan karena data dari frontend bisa dimanipulasi oleh pengguna yang berniat buruk. Dengan memvalidasi ulang dan membersihkan data di backend, kita memastikan bahwa data yang masuk ke sistem sudah sesuai standar dan aman, terlepas dari manipulasi yang mungkin terjadi di sisi frontend.
+
+### 5. Implementasi Checklist secara Step-by-Step
+Untuk mengimplementasikan checklist ini, langkah-langkah yang saya lakukan adalah: 
+
+1. Saya memulai dengan menyiapkan environment proyek Django serta memastikan bahwa struktur folder dan file sudah sesuai dengan standar PBP. 
+2. Kemudian saya mengintegrasikan AJAX ke dalam view untuk memproses request secara asynchronous tanpa reload halaman, menggunakan fetch() dan menambahkan await agar menunggu respons dari server. 
+3. Untuk POST request menggunakan AJAX, saya menambahkan decorator ini pada view yang relevan. 
+4. Kemudian saya menambahkan validasi dan pembersihan data di backend untuk memastikan data yang masuk ke database bersih dan aman. 
+5. Terakhir, saya melakukan beberapa pengujian untuk memastikan fungsionalitas berjalan dengan baik dan memperbaiki bug yang muncul selama proses tersebut.

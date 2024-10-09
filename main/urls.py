@@ -1,5 +1,5 @@
 from django.urls import path
-from main.views import show_main, create_games_entry, show_xml, show_json, show_xml_by_id, show_json_by_id, register, login_user, logout_user, edit_game, delete_game
+from main.views import show_main, create_games_entry, show_xml, show_json, show_xml_by_id, show_json_by_id, register, login_user, logout_user, edit_game, delete_game, add_game_entry_ajax
 app_name = 'main'
 
 urlpatterns = [
@@ -14,4 +14,5 @@ urlpatterns = [
     path('logout/', logout_user, name='logout'),
     path('edit-game/<uuid:id>', edit_game, name='edit_game'),
     path('delete/<uuid:id>', delete_game, name='delete_game'),
+    path('create-games-entry-ajax', add_game_entry_ajax, name='add_game_entry_ajax'),
 ]
