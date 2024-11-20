@@ -15,4 +15,6 @@ urlpatterns = [
     path('edit-game/<uuid:id>', edit_game, name='edit_game'),
     path('delete/<uuid:id>', delete_game, name='delete_game'),
     path('create-games-entry-ajax', add_game_entry_ajax, name='add_game_entry_ajax'),
+    path('auth/', include('authentication.urls')),
+    path('create-flutter/', create_game_flutter, name='create_game_flutter'),
 ]
